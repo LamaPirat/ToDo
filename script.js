@@ -11,6 +11,7 @@ const tasksContainer = document.querySelector("[data-tasks]");
 const taskTemplate = document.getElementById("task-template");
 const newTaskForm = document.querySelector("[data-new-task-form]");
 const newTaskInput = document.querySelector("[data-new-task-input]");
+const newTaskDateInput = document.querySelector("[data-new-task-date-input]");
 const clearCompleteTasksButton = document.querySelector(
   "[data-clear-complete-tasks-button]"
 );
@@ -65,9 +66,14 @@ newListForm.addEventListener("submit", (e) => {
 newTaskForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const taskName = newTaskInput.value;
+  const taskDate = newTaskDateInput.value;
   if (taskName == null || taskName === "") return;
-  const task = createTask(taskName);
+  if (taskDate == null || taskDate === "") return;
+  console.log(taskDate);
+  const task = createTask(taskName, new Date(taskDate));
   newTaskInput.value = null;
+  newTaskDateInput.value = null;
+
   const selectedList = lists.find((list) => list.id === selectedListId);
   selectedList.tasks.push(task);
   saveAndRender();
@@ -81,12 +87,27 @@ function createList(name) {
   };
 }
 
-function createTask(name) {
+function createTask(name, date) {
   return {
     id: Date.now().toString(),
     name: name,
     complete: false,
+    date: date,
   };
+}
+
+function daysLeftCalculator(task) {
+  // let today = Date.now();
+  let dueDay = task.date;
+  // let timeLeft = dueDay.getTime() - today.getTime();
+  // let daysLeft = timeLeft / (1000 * 3600 * 24);
+  // return daysLeft;
+
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, "0");
+  console.log(dueDay);
+
+  return 3;
 }
 
 function saveAndRender() {
@@ -123,6 +144,9 @@ function renderTasks(selectedList) {
     const label = taskElement.querySelector("label");
     label.htmlFor = task.id;
     label.append(task.name);
+    const dueDays = taskElement.querySelector(".due-days-display");
+    const daysLeft = daysLeftCalculator(task);
+    dueDays.append(`${daysLeft}`);
     tasksContainer.appendChild(taskElement);
   });
 }

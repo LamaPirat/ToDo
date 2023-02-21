@@ -53,6 +53,10 @@
                   placeholder="new task name"
                   aria-label="new task name"
                 />
+                <input 
+                type="date"
+                data-new-task-date-input
+                class="new task">
                 <button class="btn create" aria-label="create new task">+</button>
               </form>
         </div>
@@ -64,13 +68,19 @@
       </div>
     </div>
 
+
+
+
    
     </div>
     <template id="task-template">
       <div class="task">
+        <div class="custom-due-date">
+          <span class="due-days-display"></span>
+        </div>  
         <input type="checkbox" />
         <label>
-          <span class="custom-checkbox"></span>
+          <span class="custom-checkbox"></span>       
         </label>
       </div>
     </template>
