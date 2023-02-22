@@ -48,7 +48,7 @@ clearCompleteTasksButton.addEventListener("click", (e) => {
 
 deleteListButton.addEventListener("click", (e) => {
   lists = lists.filter((list) => list.id !== selectedListId);
-  selectedListId = null;
+  selectedListId = lists[lists.length - 1].id;
   saveAndRender();
 });
 
@@ -69,8 +69,8 @@ newTaskForm.addEventListener("submit", (e) => {
   const taskDate = newTaskDateInput.value;
   if (taskName == null || taskName === "") return;
   if (taskDate == null || taskDate === "") return;
-  console.log(taskDate);
-  const task = createTask(taskName, new Date(taskDate));
+
+  const task = createTask(taskName, taskDate);
   newTaskInput.value = null;
   newTaskDateInput.value = null;
 
@@ -97,17 +97,22 @@ function createTask(name, date) {
 }
 
 function daysLeftCalculator(task) {
-  // let today = Date.now();
-  let dueDay = task.date;
-  // let timeLeft = dueDay.getTime() - today.getTime();
-  // let daysLeft = timeLeft / (1000 * 3600 * 24);
-  // return daysLeft;
+  let dueDay = new Date(task.date);
+  let today = new Date(getCurrentDate());
+  let difference = dueDay.getTime() - today.getTime();
+  let daysLeft = Math.ceil(difference / (1000 * 3600 * 24));
 
+  return daysLeft;
+}
+
+function getCurrentDate() {
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, "0");
-  console.log(dueDay);
+  let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = today.getFullYear();
 
-  return 3;
+  today = mm + "/" + dd + "/" + yyyy;
+  return today;
 }
 
 function saveAndRender() {

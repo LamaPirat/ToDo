@@ -125,18 +125,21 @@ form {
 
 .todo-list {
   --spacer: 2rem;
-
+  align-self: start;
+  margin-top: 2rem;
   grid-area: active;
   background-color: var(--clr-light);
   color: var(--clr-dark);
 }
 
 .todo-header {
-  background: #e4e4e4;
+  background: #fbc80a;
   padding: var(--spacer);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: auto;
+  box-shadow: 0 4px 2px -2px gray;
 }
 
 .list-title {
@@ -151,6 +154,7 @@ form {
 .todo-body {
   padding: var(--spacer);
   position: relative;
+  background-color: #f6f7be;
 }
 
 .new-task-creator .create {
