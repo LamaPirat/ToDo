@@ -6,3 +6,11 @@ export function createTask(name, date) {
     date: date,
   };
 }
+
+export function createList(name) {
+  return {
+    id: Date.now().toString(),
+    name: name,
+    tasks: [],
+  };
+}
