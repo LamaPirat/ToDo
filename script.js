@@ -1,3 +1,6 @@
+//import { createTask } from "./createTask";
+//import { daysLeftCalculator } from "./days-left-calculator";
+
 const listContainer = document.querySelector("[data-lists]");
 const newListForm = document.querySelector("[data-new-list-form]");
 const newListInput = document.querySelector("[data-new-list-input]");
@@ -86,7 +89,6 @@ function createList(name) {
     tasks: [],
   };
 }
-
 function createTask(name, date) {
   return {
     id: Date.now().toString(),
