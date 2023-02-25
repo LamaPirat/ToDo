@@ -151,6 +151,15 @@ form {
   font-size: 1rem;
 }
 
+.circle-wrap {
+  margin: 150px auto;
+  width: 150px;
+  height: 150px;
+  background: #fefcff;
+  border-radius: 50%;
+  border: 1px solid #cdcbd0;
+}
+
 .todo-body {
   padding: var(--spacer);
   position: relative;
@@ -289,4 +298,57 @@ form {
   left: 0;
   bottom: -35px;
   color: var(--clr-light);
+}
+
+.skill {
+  --cirlce-size: 160px;
+  --cirlce-width: var(--cirlce-size);
+  --cirlce-height: var(--cirlce-size);
+  width: var(--cirlce-width);
+  height: var(--cirlce-height);
+  position: relative;
+  margin: 10px;
+}
+
+.outer {
+  width: var(--cirlce-width);
+  height: var(--cirlce-height);
+  padding: calc((var(--cirlce-width) * 0.25) / 2);
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    -6px -6px 10px -1px rgba(225, 225, 225, 0.7);
+  border-radius: 50%;
+}
+
+.inner {
+  width: calc(var(--cirlce-width) * 0.75);
+  height: calc(var(--cirlce-height) * 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 4px 4px 6px -1px rgba(225, 225, 225, 0.7),
+    -0.5px -0.5px 0px rgba(225, 225, 225, 1),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+
+#number {
+  font-weight: 600;
+  color: #555;
+  font-size: 30px;
+}
+
+circle {
+  fill: none;
+  stroke: url(#GradientColor);
+  stroke-width: 20px;
+  stroke-dasharray: 450;
+  transition: all 0.8s ease-in-out;
+}
+
+svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--cirlce-width);
+  height: var(--cirlce-height);
 }
