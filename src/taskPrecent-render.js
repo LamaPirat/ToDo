@@ -2,8 +2,6 @@ const number = document.getElementById("number");
 const skillContainer = document.querySelector(".skill");
 const circle = document.getElementById("circle");
 var lastCount = 0;
-circle.setAttribute("stroke-dashoffset", 0);
-number.innerHTML = `${0}%`;
 
 export function setCircle(prec) {
   let precent = (1 - prec).toFixed(1);

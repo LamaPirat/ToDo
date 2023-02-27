@@ -1,5 +1,6 @@
 import { createTask, createList } from "./createTask-List";
 import { daysLeftCalculator } from "./days-left-calculator";
+import { setCircle } from "./taskPrecent-render";
 import css from "./style.css";
 import "./style.css";
 import html from "./template.html";
@@ -130,8 +131,11 @@ function renderTaskCount(selectedList) {
   const incompleteTaskCount = selectedList.tasks.filter(
     (task) => !task.complete
   ).length;
-  const taskString = incompleteTaskCount === 1 ? "task" : "tasks";
-  listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
+  const tasksCount = selectedList.tasks.length;
+  const precent = incompleteTaskCount / tasksCount;
+  setCircle(precent);
+  // const taskString = incompleteTaskCount === 1 ? "task" : "tasks";
+  // listCountElement.innerText = `${incompleteTaskCount} ${taskString} remaining`;
 }
 
 function renderList() {
