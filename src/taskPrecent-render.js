@@ -7,8 +7,6 @@ export function setCircle(prec) {
   let precent = (1 - prec).toFixed(1);
   let counter = lastCount;
 
-  console.log(number);
-
   circle.setAttribute("stroke-dashoffset", 450 - 450 * precent);
 
   if (precent > counter / 100) {
