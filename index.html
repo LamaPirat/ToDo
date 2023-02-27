@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300&display=swap"
       rel="stylesheet"
     />
-    <script src="41b134b97aa9b365d3cc.js"></script>
+    <script src="53fc1768a1f063a731d7.js"></script>
     <title>ToDo</title>
   <script defer src="main.bundle.js"></script></head>
   <body>
@@ -37,7 +37,31 @@
     <div class="todo-list" data-list-display-container>
       <div class="todo-header">
         <h2 class="list-title" data-list-title>YouTube</h2>
-        <p class="task-count" data-list-count>3 tasks remaining</p>
+        <!-- <p class="task-count" data-list-count>3 tasks remaining</p> -->
+        <!-- Counter cirlce -->
+        <div class="skill">
+          <div class="outer">
+            <div class="inner">
+              <div id="number"></div>
+            </div>
+          </div>
+    
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+              <linearGradient id="GradientColor">
+                <stop offset="0%" stop-color="#DA22FF"></stop>
+                <stop offset="10%" stop-color="#9733EE"></stop>
+              </linearGradient>
+            </defs>
+            <circle
+              id="circle"
+              cx="50%"
+              cy="50%"
+              r="43.75%"
+              stroke-linecap="round"
+            ></circle>
+          </svg>
+        </div>
       </div>
 
       <div class="todo-body">
