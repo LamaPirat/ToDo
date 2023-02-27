@@ -1,16 +1,13 @@
-const number = document.getElementById("number");
-const skillContainer = document.querySelector(".skill");
-const circle = document.getElementById("circle");
+const number = window.document.getElementById("number");
+const skillContainer = window.document.querySelector(".skill");
+const circle = window.document.getElementById("circle");
 var lastCount = 0;
 
 export function setCircle(prec) {
   let precent = (1 - prec).toFixed(1);
   let counter = lastCount;
-  //   skillContainer.style.setProperty(
-  //     "--task-precentage-from",
-  //     `${counter / 100}`
-  //   );
-  //   skillContainer.style.setProperty("--task-precentage-to", `${precent}`);
+
+  console.log(number);
 
   circle.setAttribute("stroke-dashoffset", 450 - 450 * precent);
 
